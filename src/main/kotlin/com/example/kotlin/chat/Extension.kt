@@ -15,20 +15,22 @@ fun MessageVM.asDomainObject(contentType: ContentType = ContentType.MARKDOWN): M
     sent,
     user.name,
     user.avatarImageLink.toString(),
-    id,
+    id
 )
+
 fun Message.asViewModel(): MessageVM = MessageVM(
-    content,
+    contentType.render(content),
     UserVM(username, URL(userAvatarImageLink)),
     sent,
     id
 )
+
 fun List<Message>.mapToViewModel(): List<MessageVM> = map { it.asViewModel() }
+
 fun ContentType.render(content: String): String = when (this) {
     ContentType.PLAIN -> content
     ContentType.MARKDOWN -> {
         val flavour = CommonMarkFlavourDescriptor()
-        HtmlGenerator(content, MarkdownParser(flavour).buildMarkdownTreeFromString(content),
-            flavour).generateHtml()
+        HtmlGenerator(content, MarkdownParser(flavour).buildMarkdownTreeFromString(content), flavour).generateHtml()
     }
 }
