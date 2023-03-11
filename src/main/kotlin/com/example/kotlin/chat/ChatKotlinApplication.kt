@@ -1,7 +1,6 @@
 package com.example.kotlin.chat
 
 import io.r2dbc.spi.ConnectionFactory
-import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.context.annotation.Bean

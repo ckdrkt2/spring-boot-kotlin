@@ -1,5 +1,6 @@
-CREATE TABLE IF NOT EXISTS messages (
-    id                     VARCHAR(60)  DEFAULT RANDOM_UUID() PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS messages
+(
+    id                     VARCHAR(60) DEFAULT RANDOM_UUID() PRIMARY KEY,
     content                VARCHAR      NOT NULL,
     content_type           VARCHAR(128) NOT NULL,
     sent                   TIMESTAMP    NOT NULL,
